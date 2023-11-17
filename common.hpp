@@ -4,4 +4,6 @@
 #include <cstdint>
 #include <cstddef>
 
+#define DEBUG_TRACE_EXECUTION
+
 #endif
