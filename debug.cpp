@@ -11,7 +11,7 @@ size_t simpleInstruction(std::string name, size_t offset) {
 }
 }
 
-void Chunk::disassemble(std::string name) const {
+void Chunk::disassemble(const char *name) const {
     std::cout << std::format("== {} ==\n", name);
 
     for (size_t offset = 0; offset < code.size();) {
@@ -46,7 +46,7 @@ size_t Chunk::disassembleInstruction(size_t offset) const {
     }
 }
 
-size_t Chunk::constantInstruction(std::string name, size_t offset) const {
+size_t Chunk::constantInstruction(const char *name, size_t offset) const {
     uint8_t constant = code[offset + 1];
     std::cout << std::format("{:16} {:4} '", name, constant);
     printValue(constants[constant]);

@@ -8,7 +8,7 @@ enum class InterpretResult { Ok, CompileError, RuntimeError };
 class VM {
    public:
     VM() = default;
-    InterpretResult interpret(Chunk *chunk);
+    InterpretResult interpret(const char* source);
 
    private:
     const Chunk *chunk;

@@ -2,7 +2,6 @@
 #define clox_chunk_hpp
 
 #include <vector>
-#include <string>
 
 #include "common.hpp"
 #include "value.hpp"
@@ -22,7 +21,7 @@ class Chunk {
     Chunk();
     void write(uint8_t byte, int line);
     void write(OpCode byte, int line);
-    void disassemble(std::string name) const;
+    void disassemble(const char *name) const;
     size_t disassembleInstruction(size_t offset) const;
     size_t addConstant(Value value);
     inline const uint8_t *getCode() const {
@@ -36,7 +35,7 @@ class Chunk {
     std::vector<uint8_t> code;
     std::vector<Value> constants;
     std::vector<int> lines;
-    size_t constantInstruction(std::string name, size_t offset) const;
+    size_t constantInstruction(const char *name, size_t offset) const;
 };
 
 #endif

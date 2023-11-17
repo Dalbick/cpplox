@@ -1,11 +1,11 @@
 #include <iostream>
 
 #include "vm.hpp"
+#include "compiler.hpp"
 
-InterpretResult VM::interpret(Chunk *chunk) {
-    this->chunk = chunk;
-    ip = chunk->getCode();
-    return run();
+InterpretResult VM::interpret(const char *source) {
+    compile(source);
+    return InterpretResult::Ok;
 }
 
 InterpretResult VM::run() {
